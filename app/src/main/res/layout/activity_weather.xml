@@ -1,0 +1,291 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".WeatherActivity">
+
+    <TextView
+        android:id="@+id/tv_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#4F2A5C"
+        android:gravity="center"
+        android:padding="20dp"
+        android:text="Current Weather"
+        android:textSize="20sp"
+        android:textColor="@color/white"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!--    Location Address-->
+    <TextView
+        android:id="@+id/tv_location_address"
+        android:layout_width="match_parent"
+        android:layout_height="140dp"
+        android:layout_margin="10dp"
+        android:background="#414E91"
+        android:gravity="center"
+        android:shadowColor="@color/white"
+        android:text="Location"
+        android:textColor="@color/white"
+        android:textSize="28sp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_title" />
+
+    <!--    Weather Information-->
+    <!--Overcast-->
+    <TextView
+        android:id="@+id/tv_overcast"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:gravity="center"
+        android:text="Overcast"
+        android:textSize="22sp"
+        app:layout_constraintTop_toBottomOf="@+id/tv_location_address"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"/>
+
+    <!--     Image Icon-->
+    <ImageView
+        android:id="@+id/img_icon"
+        android:layout_width="205dp"
+        android:layout_height="159dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_overcast"
+        tools:srcCompat="@tools:sample/avatars" />
+
+    <!--   FIELDS -->
+
+    <!--Temperature-->
+    <LinearLayout
+        android:id="@+id/ll_temperature"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toBottomOf="@+id/img_icon"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent">
+
+        <TextView
+            android:id="@+id/tv_temperature"
+            android:layout_width="47dp"
+            android:layout_height="wrap_content"
+            android:gravity="right"
+            android:text="Temperature: "
+            android:textSize="18sp"
+            android:background="#414E91"
+            android:textColor="@color/white"
+            android:layout_weight="1"/>
+
+        <TextView
+            android:id="@+id/tv_disp_temperature"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="00 C "
+            android:paddingLeft="10dp"
+            android:layout_gravity="left"
+            android:textSize="18sp"
+            android:layout_weight="1"/>
+    </LinearLayout>
+
+    <!--    Feels like-->
+    <LinearLayout
+        android:id="@+id/ll_feels_like"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toBottomOf="@+id/ll_temperature"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent">
+
+        <TextView
+            android:id="@+id/tv_feels_like"
+            android:layout_width="47dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="#414E91"
+            android:textColor="@color/white"
+            android:gravity="right"
+            android:text="Feels like: "
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/tv_disp_feels_like"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="10dp"
+            android:text="00 C "
+            android:layout_gravity="left"
+            android:textSize="18sp"
+            android:layout_weight="1"/>
+    </LinearLayout>
+    <!--    Wind-->
+    <LinearLayout
+        android:id="@+id/ll_wind"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toBottomOf="@+id/ll_feels_like"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent">
+
+        <TextView
+            android:id="@+id/tv_wind"
+            android:layout_width="47dp"
+            android:layout_height="wrap_content"
+            android:gravity="right"
+            android:text="Wind: "
+            android:textSize="18sp"
+            android:background="#414E91"
+            android:textColor="@color/white"
+            android:layout_weight="1"/>
+
+        <TextView
+            android:id="@+id/tv_disp_wind"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="10dp"
+            android:text="N/A"
+            android:layout_gravity="left"
+            android:textSize="18sp"
+            android:layout_weight="1"/>
+    </LinearLayout>
+    <!--    Wind Direction-->
+    <LinearLayout
+        android:id="@+id/ll_wind_direction"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toBottomOf="@+id/ll_wind"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent">
+
+        <TextView
+            android:id="@+id/tv_wind_direction"
+            android:layout_width="47dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="right"
+            android:text="Wind Direction: "
+            android:textSize="18sp"
+            android:background="#414E91"
+            android:textColor="@color/white"/>
+
+        <TextView
+            android:id="@+id/tv_disp_wind_direction"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="10dp"
+            android:text="N/A"
+            android:layout_gravity="left"
+            android:textSize="18sp"
+            android:layout_weight="1"/>
+    </LinearLayout>
+    <!--    Humidity-->
+    <LinearLayout
+        android:id="@+id/ll_humidity"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toBottomOf="@+id/ll_wind_direction"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent">
+
+        <TextView
+            android:id="@+id/tv_humidity"
+            android:layout_width="47dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="right"
+            android:text="Humidity: "
+            android:textSize="18sp"
+            android:background="#414E91"
+            android:textColor="@color/white"/>
+
+        <TextView
+            android:id="@+id/tv_disp_humidity"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="10dp"
+            android:text="N/A"
+            android:layout_gravity="left"
+            android:textSize="18sp"
+            android:layout_weight="1"/>
+    </LinearLayout>
+    <!--    UV index-->
+    <LinearLayout
+        android:id="@+id/ll_uv_index"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toBottomOf="@+id/ll_humidity"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent">
+
+        <TextView
+            android:id="@+id/tv_uv_index"
+            android:layout_width="47dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="right"
+            android:text="UV Index: "
+            android:textSize="18sp"
+            android:background="#414E91"
+            android:textColor="@color/white"/>
+
+        <TextView
+            android:id="@+id/tv_disp_uv_index"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="10dp"
+            android:text="N/A"
+            android:layout_gravity="left"
+            android:textSize="18sp"
+            android:layout_weight="1"/>
+    </LinearLayout>
+    <!--    Visibility-->
+    <LinearLayout
+        android:id="@+id/ll_visibility"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toBottomOf="@+id/ll_uv_index"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent">
+
+        <TextView
+            android:id="@+id/tv_visibility"
+            android:layout_width="47dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="right"
+            android:text="Visibility: "
+            android:textSize="18sp"
+            android:background="#414E91"
+            android:textColor="@color/white"/>
+
+        <TextView
+            android:id="@+id/tv_disp_visibility"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="10dp"
+            android:text="N/A"
+            android:layout_gravity="left"
+            android:textSize="18sp"
+            android:layout_weight="1"/>
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
